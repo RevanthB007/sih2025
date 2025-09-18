@@ -11,7 +11,8 @@ const _Layout = () => {
         tabBarInactiveTintColor: '#8E8E93', // iOS gray
         tabBarStyle: {
           paddingTop: 6,
-        },
+          backgroundColor:'#0f0D23',
+          },
       }}
     >
         <Tabs.Screen
@@ -53,7 +54,7 @@ const _Layout = () => {
             title: 'Profile',
             headerShown: false,
             tabBarIcon: ({ color, size , focused }) => (
-              <User color={'#000814'} size={30} />
+              <User color={color} size={30} />
             )
         }}
         />
