@@ -1,23 +1,28 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
 interface ExerciseBoxProps {
     exName: string;
 }
+interface ExercisesProps {
+    exercises?: string[];
+}
+
+
 const ExerciseBox = ({exName}:ExerciseBoxProps) => {
     return (
-        <View className='max-w-12 min-h-12 bg-gray-800 rounded-lg m-1 items-center justify-center'>
-            <Text className='text-white text-2xl font-bold'>{exName}</Text>
+        <View className='w-full  max-w-[88px] min-h-[80px] bg-gray-900 rounded-lg m-1 items-center justify-center shadow-xl border-black border'>
+            <Text className='text-white text-center text-lg font-semibold'>{exName}</Text>
             
         </View>
     )
 }
-const Exercises = ({}) => {
+const Exercises = ({exercises}:ExercisesProps) => {
   return (
-    <View className='w-full'>
-      <Text>Set new Records</Text>
+    <View className=' mt-2 bg-gray-600 min-h-40 h-48 rounded-xl'>
+      <Text className='text-white text-2xl font-bold m-4 text-center'>Set new Records 📝</Text>
       <View className='flex-row'>
-        
+        {exercises?.map((ex,i) => <ExerciseBox key={i} exName={ex}/> )}
       </View>
     </View>
   )
